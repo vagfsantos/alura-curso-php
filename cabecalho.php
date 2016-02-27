@@ -1,4 +1,13 @@
-<?php require_once('mostra-alerta.php'); error_reporting(E_ALL ^ E_NOTICE);?>
+<?php
+function autoLoadClasse($minhaClasse){
+	if(file_exists('class/'.$minhaClasse.".php")){
+		require_once 'class/'.$minhaClasse.".php";
+	}
+}
+spl_autoload_register("autoLoadClasse");
+
+require_once('mostra-alerta.php');
+error_reporting(E_ALL ^ E_NOTICE);?>
 <html>
 	<head>
 		<title>Minha loja</title>
